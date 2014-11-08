@@ -3,8 +3,7 @@ var noOp = function() {};
 
 var ShowKit = function(apiKey) {
   var self = this;
-
-  this.auth = new Buffer(apiKey).toString('base64');
+  var auth = new Buffer(apiKey).toString('base64');
 
   this.makeRequest = function(method, path, data, callback) {
     callback = callback || noOp;
@@ -33,7 +32,7 @@ var ShowKit = function(apiKey) {
 };
 
 ShowKit.prototype.getAccounts = function(callback) {
-  return this.makeRequest('get', 'accounts', null, callback)
+  return this.makeRequest('get', 'accounts', null, callback);
 };
 
 ShowKit.protoype.addSubscriber = function(username, password, callback) {
