@@ -21,8 +21,26 @@ var ShowKit = function(apiKey) {
       requestOptions[ method === 'GET' ? 'qs' : 'body' ] = data;
     }
 
-    request(requestOptions, function(err, res, body) {
-      callback(err, body);
+    request(requestOptions, function(err, res, data) {
+      if (err) {
+        return callback(err);
+      }
+
+      if (data && data.faultString) {
+        return callback(new Error(data.faultString));
+      }
+
+      for (var key in data) {
+        if (key.substr(-10) === '_timestamp') {
+          data[key] = data[key] ? new Date(data[key]) : null;
+        } else if (key === 'destination_domain' || key === 'active') {
+          data[key] = data[key] === 'true' ? true :
+            data[key] === 'false' ? false :
+            data[key];
+        }
+      }
+
+      callback(null, data);
     });
 
     return self;
