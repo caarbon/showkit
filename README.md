@@ -15,7 +15,7 @@ kit.getAccounts(function(err, accounts) {
 });
 ```
 
-### Example Result
+__Example Result__
 
 ```js
 {
@@ -37,7 +37,7 @@ kit.addSubscriber('username', 'password', function(err, result) {
 });
 ```
 
-### Example Result
+__Example Result__
 
 ```js
 {
@@ -55,7 +55,7 @@ kit.getSubscribers(function(err, subscribers) {
 })
 ```
 
-### Example Result
+__Example Result__
 
 ```js
 [{
@@ -79,7 +79,7 @@ kit.getSubscriberCalls(username, function(err, calls) {
 });
 ```
 
-### Example Result
+__Example Result__
 
 ```js
 [{
@@ -105,7 +105,7 @@ kit.getSubscriberActive(username, function(err, result) {
 });
 ```
 
-### Example Result
+__Example Result__
 
 ```js
 {
