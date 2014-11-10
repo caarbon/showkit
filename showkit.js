@@ -53,7 +53,7 @@ ShowKit.prototype.getAccounts = function(callback) {
   return this.makeRequest('get', 'accounts', null, callback);
 };
 
-ShowKit.protoype.addSubscriber = function(username, password, callback) {
+ShowKit.prototype.addSubscriber = function(username, password, callback) {
   return this.makeRequest('post', 'subscribers', {
     username: username,
     password: password
