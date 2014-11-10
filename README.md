@@ -52,7 +52,7 @@ __Example Result__
 ```js
 kit.getSubscribers(function(err, subscribers) {
   // ...
-})
+});
 ```
 
 __Example Result__
